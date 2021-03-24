@@ -2,37 +2,39 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Add Movie";
+    ViewData["Title"] = "Edit Movie";
 }
 
-@model MovieCollection.Models.Movie 
+@model MovieCollection.Models.Movie
 
 <div class="container" style="width: 25%">
     <div class="card">
         <div class="card-header">
-            <h6 class="card-title">Add Movie</h6>
+            <h6 class="card-title">Edit Movie</h6>
         </div>
-
+        
         <div class="card-body">
-            <form asp-action="EnterMovies" method="post">
+            <form asp-action="EditMovie" method="post">
+                <input asp-for="MovieId" value="@Model.MovieId" hidden readonly />
+
                 <div class="form-group">
                     <label asp-for="Title">Title</label>
-                    <input asp-for="Title" class="form-control" />
+                    <input asp-for="Title" value="@Model.Title" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Year">Year</label>
-                    <input asp-for="Year" class="form-control" />
+                    <input asp-for="Year" value="@Model.Year" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Director">Director</label>
-                    <input asp-for="Director" class="form-control" />
+                    <input asp-for="Director" value="@Model.Director" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Rating">Rating</label>
-                    <select asp-for="Rating" class="form-control">
+                    <select asp-for="Rating" value="@Model.Rating" class="form-control">
                         <option value="">Select One</option>
                         <option value="G">G</option>
                         <option value="PG">PG</option>
@@ -43,21 +45,21 @@
 
                 <div class="form-group">
                     <label asp-for="Edited" class="form-check-label" style="padding-right: 30px;">Edited</label>
-                    <input asp-for="Edited" class="form-check-input" style="width: 16px; height: 16px;" />
+                    <input asp-for="Edited" vaule="@Model.Edited" class="form-check-input" style="width: 16px; height: 16px;" />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="LentTo">Lent To</label>
-                    <input asp-for="LentTo" class="form-control" />
+                    <input asp-for="LentTo" value="@Model.LentTo" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Notes">Notes</label>
-                    <textarea asp-for="Notes" class="form-control" maxlength="25" /></textarea>
+                    <textarea asp-for="Notes" class="form-control" maxlength="25" />@Model.Notes</textarea>
                 </div>
                 <br />
 
-                <button type="submit" class="btn btn-primary">Add Movie</button>
+                <button type="submit" class="btn btn-primary">Submit Changes</button>
             </form>
         </div>
 
@@ -65,4 +67,5 @@
 
         </div>
     </div>
+    
 </div>

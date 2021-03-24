@@ -20,6 +20,8 @@
                 <th scope="col">Lent To</th>
                 <th scope="col">Edited</th>
                 <th scope="col">Notes</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
 
@@ -38,6 +40,18 @@
                 <td>@elem.LentTo</td>
                 <td>@elem.Edited</td>
                 <td>@elem.Notes</td>
+                <td>
+                    <form asp-action="EditMovie" method="get">
+                        <input type="number" id="MovieId" name="MovieId" value="@elem.MovieId" hidden readonly />
+                        <button type="submit" class="btn btn-secondary">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="DeleteMovie" method="post">
+                        <input type="number" id="MovieId" name="MovieId" value="@elem.MovieId" hidden readonly />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
             }
             }

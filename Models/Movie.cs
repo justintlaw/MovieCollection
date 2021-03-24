@@ -8,6 +8,9 @@ namespace MovieCollection.Models
 {
     public class Movie
     {
+        [Key]
+        public int MovieId { get; set; }
+
         [Required(AllowEmptyStrings = false)]
         [RegularExpression(@".*\S+.*", ErrorMessage = "No white space allowed")]
         public string Title { get; set; }
